@@ -1,0 +1,35 @@
+{
+  "name": "OnEdge Lab · 端侧大模型学习实验室",
+  "short_name": "OnEdge Lab",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07100F",
+  "theme_color": "#07100F",
+  "description": "端侧大模型 0~1 学习：37 节课程 · 90 题刷题 · 量化与体检实操，全部离线内置",
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
