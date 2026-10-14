@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-  <meta name="description" content="OnEdge Lab · 端侧大模型学习实验室。从概念到真跑：37 节精品课程 · 90 题刷题 · 模型量化与能力体检实操沙盒，全部内容离线内置。">
+  <meta name="description" content="OnEdge Lab · 端侧大模型学习实验室。37 节精品课程 · 90 题刷题 · 量化与能力体检实操沙盒，全部内容离线内置。">
 
   <!-- iOS PWA：添加到主屏幕后独立全屏窗口 -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -62,9 +62,36 @@
     <div class="bar"><i></i></div>
   </div>
 
+  <script>
+    // Flutter 视图挂载后自动隐藏 splash（修复：此前遮罩永不消失）
+    (function () {
+      var s = document.getElementById('splash');
+      function hide() {
+        s.style.opacity = '0';
+        setTimeout(function () { s && s.remove(); }, 450);
+      }
+      var obs = new MutationObserver(function () {
+        if (document.querySelector('flutter-view')) {
+          obs.disconnect();
+          setTimeout(hide, 350);
+        }
+      });
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+      // 兜底：极端情况下 60s 后若已挂载仍强制隐藏
+      setTimeout(function () {
+        if (document.querySelector('flutter-view')) { obs.disconnect(); hide(); }
+      }, 60000);
+    })();
+  </script>
+
   <!--
-    This is a placeholder for the root of your Flutter application.
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
   -->
-  <script src="flutter_bootstrap.js" defer></script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
